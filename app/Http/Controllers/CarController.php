@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\Car;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
 
-class UserController extends Controller
+class CarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +16,10 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $users = User::all()->toArray();
-        // con il metodo toArray() l'item ha 6 valori
-        $users2 = User::all();
-        // mentre con il metodo all() ritorna 8 valori (provare dd sotto)
-        // dd($users, $users2);
-        $routeItem = 'user';
-        $headData = Schema::getColumnListing((new User)->getTable());
-        // dd($headTable);
-        return view('users.index', compact('users', 'headData', 'routeItem'));
+        $cars = Car::all()->toArray();
+        $headData = Schema::getColumnListing((new Car)->getTable());
+        $routeItem = 'cars';
+        return view('users.index2', compact('cars', 'headData', 'routeItem'));
     }
 
     /**
@@ -89,8 +83,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Car $car)
     {
-        //
+        $car->delete();
+
+        return redirect()->route("users.index2");
     }
 }
