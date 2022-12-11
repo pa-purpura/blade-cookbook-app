@@ -85,8 +85,8 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
+        // dd($car);
         $car->delete();
-
-        return redirect()->route("users.index2");
+        return redirect()->route('cars.index');
     }
 }

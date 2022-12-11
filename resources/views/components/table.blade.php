@@ -15,11 +15,11 @@
             </td>
             @endforeach
             {{-- !! trovare soluzione migliore per la variabile $routeItems !! --}}
-            <td><a href="{{route($routeItems . '.edit', $key)}}"><button class="btn btn-secondary"
+            <td><a href="{{route($routeItems . '.edit', $item['id'])}}"><button class="btn btn-secondary"
                         type="button">Modifica</button></a></td>
             <td>
             <td>
-                <x-buttons.delete-form method="post" action="{{route($routeItems . '.destroy', $key)}}" />
+                <x-buttons.delete-form method="post" action="{{route($routeItems . '.destroy', $item['id'])}}" />
             </td>
         </tr>
         @endforeach
