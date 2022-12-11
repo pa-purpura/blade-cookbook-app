@@ -1,12 +1,11 @@
 <tr>
     @foreach ($item as $key2 => $value)
-    {{-- @dd($item, $key2, $value) --}}
-    <td>{{$value}}</td>
+    <x-cell :value="$value"></x-cell>
     @endforeach
-    <td><a href="{{route($routeItems . '.edit', $key)}}"><button class="btn btn-secondary"
-                type="button">Modifica</button></a>
-    </td>
+    <td><a href="{{route($routeItems . '.edit', $item['id'])}}"><button class="btn btn-secondary"
+                type="button">Modifica</button></a></td>
     <td>
-        <x-buttons.delete-form method="post" action="{{route($routeItems . '.destroy', $key)}}" />
+    <td>
+        <x-buttons.delete-form method="post" action="{{route($routeItems . '.destroy', $item['id'])}}" />
     </td>
 </tr>
