@@ -21,8 +21,21 @@
     <x-partials.sidebar></x-partials.sidebar>
     
     <main class="app-content">
-      {{-- @dd(Session::has()) --}}
-      
+
+      <div hidden>
+        @if (Session::has('status'))
+          {{$status = Session::all()['status']}}
+          {{$messagge = Session::all()['messagge']}}
+        @else
+          {{ $status = '' }}
+          {{ $messagge = ''}}          
+        @endif
+      </div>       
+
+      @if (Session::has('status'))        
+        <x-partials.flash type={{$status}} > {{$messagge}} </x-partials.flash>
+      @endif
+
       {{ $slot }}
 
     </main>
