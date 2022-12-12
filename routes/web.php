@@ -23,5 +23,6 @@ Route::get('/index', function () {
     return view('index');
 });
 
+
 Route::resource('user', UserController::class);
 Route::resource('cars', CarController::class);
