@@ -1,6 +1,5 @@
 @props([
     'type' => 'info',
-    'message' => '',
     'colors' => [
         'success' => 'alert-success',
         'info' => 'alert-info',
@@ -10,7 +9,7 @@
 ])
 
 
-<div style="position: relative; z-index: 20;" {{$attributes->merge(['class' => " {$colors[$type]} alert alert-block w-75" ]) }}>
+<div style="position: absolute; z-index: 20; top: 10rem; right: 3rem" {{$attributes->merge(['class' => " {$colors[$type]} alert alert-block w-50" ]) }}>
     <button type="button" class="close" data-dismiss="alert">×</button>
     <strong>{{ $slot }}</strong>
 </div>

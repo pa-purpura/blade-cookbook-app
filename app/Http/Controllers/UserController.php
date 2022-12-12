@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-
 class UserController extends Controller
 {
     /**
@@ -15,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();        
+        $users = User::all();
         return view('users.index', compact('users'));
     }
 
@@ -26,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.edit');
     }
 
     /**
@@ -37,7 +36,27 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        // $user = new User;
+
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+
+        // $user->save();
+
+        $data = [
+            'status' => 'warning',
+            'messagge' => 'occhio alla via'
+        ];
+
+        return redirect()->route('user.index')->with($data);
     }
 
     /**
@@ -57,9 +76,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -71,7 +90,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**
