@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +23,6 @@ Route::get('/index', function () {
     return view('index');
 });
 
+
 Route::resource('user', UserController::class);
+Route::resource('cars', CarController::class);

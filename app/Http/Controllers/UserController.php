@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class UserController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -16,6 +17,20 @@ class UserController extends Controller
     {
         $users = User::all();
         return view('users.index', compact('users'));
+    }
+
+    public function indexTable()
+    {
+        // con il metodo toArray() l'item ha 6 valori
+        $users = User::all();
+        $arrayUsers = $users->toArray();
+        $users2 = User::all();
+        // mentre con il metodo all() ritorna 8 valori (provare dd sotto)
+        dd($users, $users2);
+        $routeItem = 'user';
+        $headData = Schema::getColumnListing((new User)->getTable());
+        // dd($headTable);
+        return view('users.index', compact('users', 'headData', 'routeItem'));
     }
 
     /**
