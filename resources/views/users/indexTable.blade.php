@@ -5,9 +5,9 @@
             <h1><i class="fa fa-dashboard"></i> Pannello User</h1>
         </div>
     </div>
-    <div>
+    {{-- <div>
         <x-partials.flash> test flash message </x-partials.flash>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="col-md-12">
