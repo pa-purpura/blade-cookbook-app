@@ -1,16 +1,16 @@
     @props([
         'method' => 'POST',
         'action' => '',
-        'user' => ''
+        // 'user' => ''
     ])
     
     <form 
         method="{{ $method === 'GET' ? 'GET': 'POST'}}"
         action="{{ $action }}"
     >
-        @csrf
+        @csrf        
         @if (! in_array($method, ['GET', 'POST']))
-            @method('PUT')            
+            @method('PATCH')            
         @endif
         {{ $slot }}
         <x-buttons.button>Salva</x-buttons.button>       

@@ -33,7 +33,7 @@
       </div>       
 
       @if (Session::has('status'))        
-        <x-partials.flash type={{$status}} > {{$messagge}} </x-partials.flash>
+        <x-partials.flash  type={{$status}} > {{$messagge}} </x-partials.flash>
       @endif
 
       {{ $slot }}
