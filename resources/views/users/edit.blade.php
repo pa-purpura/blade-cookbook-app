@@ -3,10 +3,10 @@
     <div hidden>
         @if ( Request::url()==='http://127.0.0.1:8000/user/create' )
             {{ $action='http://127.0.0.1:8000/user'}}
-            {{$method = 'POST'}}
+            {{ $method = 'POST'}}
         @else
             {{ $method='PATCH'}}
-            {{ $action='http://127.0.0.1:8000/user/update'}}
+            {{ $action='http://127.0.0.1:8000/user/'.$user->id}}
         @endif
     </div>
     
